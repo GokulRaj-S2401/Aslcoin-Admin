@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { apiUrl } from '../../apiurl';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { apiUrl } from "../../apiurl";
+import axios from "axios";
 import Otp from "../auth/Otp";
-import { toast } from 'react-toastify'; 
+import { toast } from "react-toastify";
 
 const Login = ({ setOtp }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [otpval, setOtpval] = useState(null); // Change to null instead of undefined
   const [showOtp, setShowOtp] = useState(false); // State to control rendering of Otp component
 
@@ -14,27 +14,27 @@ const Login = ({ setOtp }) => {
     axios
       .post(`${apiUrl}/admin_login`, {
         email,
-        password
+        password,
       })
       .then((response) => {
         if (response.data.status === "Success") {
           console.log(response.data, "response");
           toast.success(response.data.message, {
             style: {
-              background: '#12181F',
-              color: '#FFF'
-            }
+              background: "#12181F",
+              color: "#FFF",
+            },
           });
           setOtpval(response.data.data);
-          setShowOtp(true); 
+          setShowOtp(true);
         }
       })
       .catch((error) => {
         toast.error("Failed to Login", {
           style: {
-            background: '#12181F',
-            color: '#FFF'
-          }
+            background: "#12181F",
+            color: "#FFF",
+          },
         });
         console.error("Error occurred during login:", error);
       });
@@ -81,7 +81,10 @@ const Login = ({ setOtp }) => {
             />
           </div>
 
-          <div onClick={handleLogin} className="flex items-center justify-end px-5 font-light  bg-gradient-to-b from-[#9D6CFF]   to-[#1984FF]  mt-12  h-[60px] w-full md:w-[280px]  rounded-3xl ">
+          <div
+            onClick={handleLogin}
+            className="flex items-center cursor-pointer justify-end px-5 font-light  bg-gradient-to-b from-[#9D6CFF]   to-[#1984FF]  mt-12  h-[60px] w-full md:w-[280px]  rounded-3xl "
+          >
             <span className="pr-[32%] md:pr-[54px] text-center flex justify-center">
               Continue
             </span>

@@ -5,7 +5,7 @@ const SideBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   return (
-    <div className="flex flex-col gap-3  fixed z-50 left-0 top-0 min-h-fit h-[100vh] w-[250px] bg-background  shadow-xl py-5 text-sm">
+    <div className="flex flex-col gap-3  z-50 left-0 top-0 min-h-fit h-[100vh] w-[250px] bg-background  shadow-xl py-5 text-sm">
       <img
         src="/assets/sidebar/logoname.png"
         alt="logo"
@@ -38,6 +38,18 @@ const SideBar = () => {
       >
         <img src="/assets/sidebar/user.svg" alt="logo" className="w-6 h-6" />
         User management
+      </div>
+      <div
+        className={`${
+          location.pathname === "/community" &&
+          " bg-[#9D6CFF4D] border-r-[6px] border-[#9D6CFF]"
+        } cursor-pointer px-8 py-2 flex  gap-2 items-center text-[#fff] font-bold text-sm`}
+        onClick={() => {
+          navigate("/community");
+        }}
+      >
+        <img src="/assets/sidebar/user.svg" alt="logo" className="w-6 h-6" />
+        Community{" "}
       </div>
       <div
         className={`${
@@ -148,12 +160,44 @@ const SideBar = () => {
           navigate("/wallet_Request");
         }}
       >
-        <img
-          src="/assets/sidebar/wallet.svg"
-          alt="logo"
-          className="w-6 h-6"
-        />
+        <img src="/assets/sidebar/wallet.svg" alt="logo" className="w-6 h-6" />
         <span>Widthdraw Request</span>
+      </div>
+      <div
+        className={`${
+          location.pathname === "/orders" &&
+          " bg-[#9D6CFF4D] border-r-[6px] border-[#9D6CFF]"
+        } cursor-pointer px-8 py-2 flex  gap-2 items-center text-[#fff] font-bold text-sm`}
+        onClick={() => {
+          navigate("/orders");
+        }}
+      >
+        <img src="/assets/sidebar/wallet.svg" alt="logo" className="w-6 h-6" />
+        <span>Orders</span>
+      </div>
+      <div
+        className={`${
+          location.pathname === "/wallet" &&
+          " bg-[#9D6CFF4D] border-r-[6px] border-[#9D6CFF]"
+        } cursor-pointer px-8 py-2 flex  gap-2 items-center text-[#fff] font-bold text-sm`}
+        onClick={() => {
+          navigate("/wallet");
+        }}
+      >
+        <img src="/assets/sidebar/wallet.svg" alt="logo" className="w-6 h-6" />
+        <span>Wallet</span>
+      </div>
+      <div
+        className={`${
+          location.pathname === "/transfer" &&
+          " bg-[#9D6CFF4D] border-r-[6px] border-[#9D6CFF]"
+        } cursor-pointer px-8 py-2 flex  gap-2 items-center text-[#fff] font-bold text-sm`}
+        onClick={() => {
+          navigate("/transfer");
+        }}
+      >
+        <img src="/assets/sidebar/wallet.svg" alt="logo" className="w-6 h-6" />
+        <span>Transfer</span>
       </div>
     </div>
   );
